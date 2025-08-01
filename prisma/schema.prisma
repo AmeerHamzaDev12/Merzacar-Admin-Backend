@@ -1,0 +1,109 @@
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+// Prisma schema for Merza Cars backend
+// This schema supports: Car management, User/Team management, Admin authentication
+
+
+// Admin/User model for authentication and team management
+model UserTeam {
+  id        String   @id @default(uuid())
+  name      String
+  role      String
+  email     String   @unique
+  phone     String
+  imageUrl  String?  // optional
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model CarListing {
+  id             String     @id @default(uuid())
+  title          String
+
+  condition      String     // e.g., New, Used
+  type           String?     // e.g., SUV, Sedan
+  make           String?
+  model          String?
+  price          Decimal?    @db.Decimal(10, 2)
+  year           Int?
+  driveType      String?
+  transmission   String?
+  fuelType       String?
+  mileage        Int?
+  engineSize     Float?     // Liters
+  cylinders      Int?
+  color          String?
+  doors          Int?
+  vin            String?
+  description    String?    @db.Text
+
+  videoLink      String?    // e.g. YouTube or mp4 URL
+
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @updatedAt
+
+  galleryImages  GalleryImage[]
+  attachments    CarAttachment[]
+  features       CarFeature[]
+  safetyFeatures CarSafetyFeature[]
+}
+
+model GalleryImage {
+  id            String     @id @default(uuid())
+  url           String
+  publicId      String? 
+  carListingId  String
+  carListing    CarListing @relation(fields: [carListingId], references: [id], onDelete: Cascade)
+}
+
+model CarAttachment {
+  id            String     @id @default(uuid())
+  fileUrl       String
+  publicId      String? 
+  originalName  String
+  carListingId  String
+  carListing    CarListing @relation(fields: [carListingId], references: [id], onDelete: Cascade)
+}
+
+model CarFeature {
+  id            String     @id @default(uuid())
+  name          String     // e.g., Bluetooth, Heated seats
+  carListingId  String
+  carListing    CarListing @relation(fields: [carListingId], references: [id], onDelete: Cascade)
+}
+
+model CarSafetyFeature {
+  id            String     @id @default(uuid())
+  name          String     // e.g., Backup camera, Brake assist
+  carListingId  String
+  carListing    CarListing @relation(fields: [carListingId], references: [id], onDelete: Cascade)
+}
+
+enum CarCondition {
+  NEW
+  USED
+}
+
+model User {
+  id             String   @id @default(uuid())
+  name           String?
+  email          String   @unique
+  password       String   // Nullable for OAuth users
+  emailVerified  DateTime?
+  otp            String?
+  otpExpiry      DateTime?
+  resetToken     String?      // 🔐 Add this
+  resetTokenExpiry  DateTime?
+  authtoken      String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+

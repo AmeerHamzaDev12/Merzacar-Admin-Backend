@@ -1,0 +1,25 @@
+Frontend:
+1\ Learn how to debug app via console, network tab
+2\ Learn how to make pretty console logs
+3\ learn how .envs works
+BE:
+1\ Learn how to console the values, request headers etc
+2\ Learn how headers works, what information every request header contains
+3\ Learn how cross works (how to fix cross issue)
+4\ Learn how jwt works (edited) 
+
+
+Asif Raza
+  4:16 PM
+BE:
+Please also check how to share postman apis so frontend can have latest apis always.
+:+1:
+1
+
+4:16
+If anyone have question anytime please ask here
+4:17
+@Asim Ali
+ share your availability
+4:17
+I need to do a google meet with you, and have you done upload your codes?

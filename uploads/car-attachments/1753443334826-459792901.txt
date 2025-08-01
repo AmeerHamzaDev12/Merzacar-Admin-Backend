@@ -1,0 +1,56 @@
+Storing Images: Firebase
+Chating functionality: Sendbird
+Authentication: Clerk
+Database: PostGress
+
+
+public folder: Images and Fonts are in this folder 
+
+src folder: Actual codes, files and pages
+index.css: under src folder and is globally applicable to whole application
+main.jsx: under src and in this our app is render
+
+index.html: in this we change the title and add some metadata for SEO
+
+shadcn library: it is based on tailwind css it has a lot of predefined components
+
+Tailwind setup
+--> ui.shadcn.com
+
+Routing:
+reactrouter.com: official react routing library. ( https://reactrouter.com/6.28.0/start/tutorial )
+
+Authentication:
+Clerk.com it is a authentication provider and free to use.
+{.env.local} file ok.
+
+Icons:
+for icons visit this { https://react-icons.github.io/react-icons/ }
+
+Fake Data:
+For generating the fake data {fakerjs.dev} 
+
+For Scrolling:
+goto shadcn and search for { Carousel } in component
+
+For Footer:
+for adding footer follow this website { hyperui.dev }
+
+Backend Routing:
+
+when user click on { Submit Listing } he/she redirect to { /profile } page and he see
+his previous listing and on this page when he/she click on { Add New Listing } we'll
+redirect him/her on { /add-listing } page this contain a form.
+
+Backend Setup:
+
+{orm.drizzle.team} orm stands for object relational mapping, it help us to write the record in
+database without writing the database query because we are using { POSTGRESS database } 
+1. for this goto documentation
+2. select the get started
+3. select NEON it is a service provider for postgress sql database provider for free { neon.tech }
+4. import statements in make a new folder in root folder i.e config and make index.js file in this 
+and then paste the import statements and remove the ( ! ) sign and then in { .env.local } file
+VITE_DRIZZLE_DATABASE_URL= write this and then go to { neon.tech } make a connection string 
+and paste it above^ then paste this { import.meta.env.VITE_DRIZZLE_DATABASE_URL } in the index.js
+{ neon(in this) }. Then go back to orm.drizzle and click Drizzle Kit.

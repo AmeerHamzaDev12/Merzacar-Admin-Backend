@@ -1,0 +1,23 @@
+[2025-07-28 14:28:54] ERROR: Register attempt without email or password or name
+[2025-07-31 23:30:09] ERROR: Error creating car: 
+Invalid `prisma.carListing.create()` invocation in
+E:\Merzacar web backend\src\controllers\carlisting.controllers.ts:150:44
+
+  147   })
+  148 );
+  149 
+→ 150 const newCar = await prisma.carListing.create(
+Can't reach database server at `localhost:3306`
+
+Please make sure your database server is running at `localhost:3306`.
+[2025-07-31 23:30:52] ERROR: Error creating car: 
+Invalid `prisma.carListing.create()` invocation in
+E:\Merzacar web backend\src\controllers\carlisting.controllers.ts:150:44
+
+  147   })
+  148 );
+  149 
+→ 150 const newCar = await prisma.carListing.create(
+Can't reach database server at `localhost:3306`
+
+Please make sure your database server is running at `localhost:3306`.
